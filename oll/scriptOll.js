@@ -245,3 +245,122 @@ console.log(hamburger === 3 &&  cola === 2 || fries === 3 && nuggets); //2(пр�
 //console.log(NaN || null || !3 || undefined || 5); //5
 //console.log(NaN || null && !3 && undefined || 5); //5
 //console.log(5 === 5 && 3>1 || 5); //true
+
+//Циклы.
+
+let num2 = 50;
+
+while (num2 <= 55) {
+    console.log(num2);
+   num2++;
+} // 50 ... 55
+
+do {
+    console.log(num2);
+    num2++;
+}
+while (num2 < 55);
+
+for (let i = 1; i < 8; i++) {
+    console.log(i)
+} //1 ... 7
+
+for (let i = 1; i < 8; i++) {
+    console.log(num2);
+    num2++;
+}   //50 ... 56
+
+for (let i = 1; i < 10; i++) {
+    if (i === 6) {
+        break; //continue - позволяет пропустить тот шаг , не завершая цикл
+    }
+}  // 1 ... 5
+
+//Цикл в цикле
+
+
+for (let i = 0; i < 3; i++) {
+    console.log(i);
+    for (let j = 0; j < 3; j++) {
+        console.log(j);
+    }
+}
+
+let result = '';
+const length = 7;
+
+for (let i = 1; i < length; i++) {
+    for (let j = 0; j < i; j ++){
+        result += "*";
+    }
+    result += '\n';
+}
+console.log(result);
+//*
+//**
+//***
+//****
+//*****
+//******
+
+first: for (let i =0; i<3; i++){
+    console.log(`first level: ${i}`);
+    for (let j = 0; j < 3; j++){
+        console.log(`second level: ${j}`);
+        for(let k = 0; k <3; k++) {
+            if (k === 2) continue first;
+            console.log(`Third level: ${k}`);
+        }
+    }
+}
+
+for (let i = 2; i < 11; i += 2) {
+    console.log(i);
+}
+
+const lines = 5;
+let result1 = '';
+
+for (let i = 0; i <= lines; i++) {
+    for (let j = 0; j < lines - i; j++) {
+        result1 += " ";
+    }
+    for (let j = 0; j < 2 * i + 1; j++) {
+        result1 += "*";
+    }
+    result1 += "\n";
+}
+
+console.log(result1);
+
+const usdCurr = 28;
+const eurCurr = 32;
+function  converter( amount, curr ) {
+    console.log(curr * amount);
+}
+
+converter(500, usdCurr);
+converter(500, eurCurr);
+
+const usdCurr1 = 28;
+const discount = 0.9;
+function  convert( amount, curr ) {
+   return curr * amount;
+}
+function promotion(result) {
+    console.log(result * discount);
+}
+const res = convert(500, usdCurr1);
+promotion(res);
+
+function test() {
+    for (let i = 0; i < 5; i ++) {
+        console.log(i);
+        if (i ===3) return
+    }
+    console.log('Done');
+}
+test();
+
+function doNothing() {};
+    console.log( doNothing() === undefined)
