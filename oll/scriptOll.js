@@ -333,6 +333,59 @@ for (let i = 0; i <= lines; i++) {
 
 console.log(result1);
 
+
+
+function test() {
+    for (let i = 0; i < 5; i ++) {
+        console.log(i);
+        if (i ===3) return
+    }
+    console.log('Done');
+}
+test();
+
+function doNothing() {}
+    console.log( doNothing() === undefined)
+
+
+//Функции
+
+let num3 = 20;
+
+function showFirstMessage(text) {
+    console.log(text);
+    console.log(num3);
+}
+
+showFirstMessage("Hello");
+console.log(num3);
+
+function calc(a, b) {
+    return ( a +b);
+}
+
+console.log(calc(4 , 3));
+console.log(calc(2 , 1));
+console.log(calc(10 , 5));
+
+function ret() {
+    let num = 50;
+
+
+    return num;
+}
+const anotherNum = ret();
+console.log(anotherNum);
+
+const logger = function () {
+    console.log("hello");
+}
+logger();
+
+const calc1 = (a , b) => {
+    console.log('1');
+    return a + b
+}
 const usdCurr = 28;
 const eurCurr = 32;
 function  converter( amount, curr ) {
@@ -345,7 +398,7 @@ converter(500, eurCurr);
 const usdCurr1 = 28;
 const discount = 0.9;
 function  convert( amount, curr ) {
-   return curr * amount;
+    return curr * amount;
 }
 function promotion(result) {
     console.log(result * discount);
@@ -353,14 +406,223 @@ function promotion(result) {
 const res = convert(500, usdCurr1);
 promotion(res);
 
-function test() {
-    for (let i = 0; i < 5; i ++) {
-        console.log(i);
-        if (i ===3) return
-    }
-    console.log('Done');
-}
-test();
+//методы и св-ва строк и чисел
 
-function doNothing() {};
-    console.log( doNothing() === undefined)
+const str1 = 'test';
+
+//console.log(str1[2]= 'd');
+
+console.log(str1.toUpperCase());  //заглавные
+console.log(str1.toLowerCase()); //испровляет
+console.log(str1);
+
+const fruit = "some fruit";
+
+console.log(fruit.indexOf("q")); //-1 такого аргумента нет
+
+const logg = "Hello world"
+console.log(logg.slice(6, 10)); //worl
+console.log(logg.substring(6, 11)) //world
+console.log(logg.substr(6, 11)); //сколько символов необходимо вырезать
+
+const num11 = 12.2;
+console.log(Math.round(num11));//До целого
+
+const test11 = "12.2px";
+console.log(parseInt(test11)); // в целое число
+console.log(parseFloat(test11)); // переводит в число
+
+function first() {
+    setTimeout(function (){
+        console.log(1);
+    }, 500);
+}
+function second() {
+    console.log(2);
+}
+
+first();
+second();
+
+function learnJS(lang, callback) {
+    console.log(`я учу: ${lang}`);
+    callback();
+}
+function done () {
+    console.log('я прошел этот урок')
+}
+
+learnJS('JavaScript', done);
+
+//обьекты Б деструктуризация объектов
+
+const options = {
+    name : 'test',
+    width : 1024,
+    height: 1024,
+    colors : {
+        border:'black',
+        bg: 'red'
+    },
+    makeTest: function () {
+        console.log('test');
+    }
+
+};
+
+options.makeTest();
+
+//const {border , bg} = options.colors;
+//console.log(border);
+
+//console.log(options.name);
+
+//delete options.name;
+//console.log(options);
+
+let counter = 0;
+
+for (let key in options) {
+    if (typeof (options[key]) === 'object'){
+        for (let i in options[key]){
+            console.log(`Св-ва ${i} имеет значение ${options[key][i]}`);
+            console++;
+        }
+    }else {
+        console.log(`сво-ва ${key} имеет значение ${options[key]}`);
+        console++;
+    }
+}
+console.log(counter);
+
+//массивы и псевдомассивы
+
+const arr11 = [1, 22, 13, 67 ,8 , 10];
+
+arr11.sort(); //[1, 10, 13, 22, 67, 8]
+
+function compareNum (a, b) {
+    return a - b;
+}
+arr11.sort(compareNum);
+console.log(arr11); //[1, 8, 10, 13, 22, 67]
+
+//arr11[99] = 0;
+//console.log(arr11.length); //по последнему индексу +1
+//console.log(arr11);
+
+arr11.forEach(function (item, i,arr11){
+    console.log(`${i}: ${item} внутри массива ${arr11}`);
+});
+
+//arr11.pop();
+arr11.push(10);
+
+console.log(arr11);
+
+for (let i = 0; i < arr11.length; i ++){
+    console.log(arr11[i]);
+}
+
+for (let value of arr11) {
+    console.log(value);
+}
+
+//const str = prompt("", "");
+//const products = str.split('','');
+//products.sort();
+//console.log(products.join(';'));
+
+//Передача по ссылке или по значению , Spread оператор
+let a = 5,
+    b = a;
+
+b= b +5;
+
+console.log(b); //10
+console.log(a); // 5
+
+const obj21 = {
+    a: 5,
+    b: 1
+}
+
+const copy3 = obj21; //ссылка
+copy3.a = 10;
+
+console.log(copy3); //{a:10, b:1 }
+console.log(obj21); //{a:10, b:1 }
+
+function  copy4(mainObj) {
+    let objCopy = {};
+    let key;
+    for (key in mainObj) {
+        objCopy[key] = mainObj [key];
+    }
+    return objCopy;
+}
+
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
+
+const newNumbers = copy4(numbers);
+
+newNumbers.a = 10;
+newNumbers.c.x = 10;
+
+console.log(newNumbers);
+console.log(numbers);
+
+const add = {
+    d: 17,
+    e: 20
+};
+
+//console.log(Object.assign(numbers, add)); //соединяются , независимая коппия объекта
+console.log(Object.assign(numbers, add));
+//const clone1 = (Object.assign({}, add));
+
+//clone1.d = 20;
+
+//console.log(add);
+//console.log(clone1);
+
+const oldArray = ['a', 'b', 'c'];
+//const newArray = oldArray.slice();
+
+newArray[1] = 'aassda';
+//console.log(newArray);
+console.log(oldArray);
+
+const video = ['youtube', 'vimeo', 'rutube'],
+    blogs = ['wordpress', 'livejournal', 'blogger'],
+    internet = [...video, ...blogs, 'vk', 'facebook'];
+
+console.log(internet);
+
+function log1(a, b , c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+const num24 = [ 2, 4, 7];
+
+log1(...num24);
+
+
+const  array = ["a", "b"];
+
+const newArray = [...array];
+
+const q = {
+    one: 1,
+    two: 2
+};
+
+const newObj = {...q};
