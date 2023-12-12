@@ -626,3 +626,150 @@ const q = {
 };
 
 const newObj = {...q};
+
+//обьектное прототипное програмирование
+
+//Прототипное
+
+//let str22 = "some";
+//let strObj1 = new String(str22);
+
+//console.log(typeof(str22)); //string
+//console.log(typeof (strObj1)); //object
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    seyHello: function () {
+        console.log('Hello');
+    }
+};
+
+const jonh = Object.create(soldier);
+
+//const jonh = {
+//    health: 100
+//};
+//jonh.__proto__ = soldier;
+
+//Object.setPrototypeOf(jonh, soldier);//Hello
+
+//console.log(jonh.armor); //100
+jonh.seyHello(); //Hello
+
+//const shoppingMallData = {
+//   shops: [
+//      {
+//           width: 10,
+//            length: 5
+//        },
+//        {
+//           width: 15,
+//           length: 7
+//        },
+//        {
+//            width: 20,
+//            length: 5
+//        },
+//        {
+//            width: 8,
+//            length: 10
+//        }
+//   ],
+//    height: 5,
+//    moneyPer1m3: 30,
+//    budget: 50000
+//}
+//function isBudgetEnough(data) {
+//    let square = 0;
+//    let volume = 0;
+//    data.shops.forEach(shop => {
+//        square += shop.width * shop.length;
+//    });
+//    volume = data.height * square;
+//    if (data.budget - (volume * data.moneyPer1m3) >= 0) {
+//        return 'Бюджета достаточно';
+//    } else {
+//        return 'Бюджета недостаточно';
+//    }
+//}
+//isBudgetEnough(shoppingMallData);
+
+//Жинамическая типизация
+//1 string
+console.log(typeof (String(null)));
+console.log(typeof (String(4)));
+//2
+console.log(typeof (5+ ''));// string
+
+const num32 = 5;
+
+console.log("https://vk.com/catalog/" + num32);
+
+const fontSize = 25 + 'px';
+//To number
+//1
+console.log(typeof (Number('4')));
+//2
+console.log(typeof (+'5'));
+//3
+console.log(typeof (parseInt("15px", 10)));
+let answ = +prompt("Hello", "");
+//to boolean
+
+//0, '', null, undefined, NaN
+//1
+let switcher = null;
+
+if (switcher) {
+    console.log('Working..');
+}
+
+switcher =1 ;
+
+if (switcher) {
+    console.log('Working..');
+}
+//2
+console.log(typeof (Boolean('4')));
+//3
+console.log(typeof (!!"4333"));
+
+//Замыкание и лексическое окружение
+
+let number12 = 5;
+
+function logNumber() {
+    console.log(number12);
+}
+number12 = 6;
+logNumber();//6
+
+function createCounter() {
+    let counter = 0;
+
+    const myFunction = function () {
+        counter = counter +1;
+        return counter;
+    }
+    return myFunction();
+}
+
+const increment = createCounter();
+const c1 = increment();
+const c2 = increment();
+const c3 = increment();
+
+console.log(c1, c2, c3);
+
+//{
+  //  let msg = 'Hello';
+//}
+//console.log(msg);//ошибка , msg доступна только в блоке скобках
+
+//for (let i = 0; i < 9; i ++){
+//    for (let j = 0; j < 9; j++) {
+//        let num =3;
+//    }
+//    console.log(num);//находится внутри лексического окружения
+//}
