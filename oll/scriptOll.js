@@ -773,3 +773,39 @@ console.log(c1, c2, c3);
 //    }
 //    console.log(num);//находится внутри лексического окружения
 //}
+
+//////////
+
+//let x = 5; alert( x++ );// 5 ( ++x )  - 6
+//[] + false - null + true;
+console.log([] + false); // false
+console.log(typeof ([] + false));//string
+console.log([] + false - null + true); //NaN
+
+//let y = 1;
+//let x = y = 2;
+//alert(x); // 2
+
+console.log([]+ 1 + 2);// "12" пустой массив перводится в строку
+
+alert( "1"[0] ); //1 [0] -  индекс
+
+//console.log(2 && 1 && null && 0 && undefined); // null
+// && запинается на лжи
+// || запинается на правде
+
+console.log(!!(1 && 2) === (1 && 2));// undefined
+           //3    //3    //true
+//alert ( null || 2 && 3 || 4); //3
+
+//const a = [1,2,3];
+//const b = [1,2,3];
+//console.log(a == b); //false
+
+alert(+"Infinity" ); //'Infinity' тип данных число
+
+//console.log("Ежик">"яблоко "); //false
+
+console.log(0 || "" || 2 || undefined || true || false); //2
+
+
