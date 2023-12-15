@@ -16,7 +16,7 @@
 
 for (let node of document.body.childNodes) {
     if (node.nodeName === '#text') {
-        continue;
+        continue; //наткнулся на текстовую ноду и остановился
     }
     console.log(node);
 }
