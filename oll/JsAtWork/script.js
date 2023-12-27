@@ -1,0 +1,52 @@
+// function func() {
+//     window.smth = 'string';
+// }
+// const someRes = getData();
+// const node = document.querySelector('.class');
+//
+// setInterval(function () {
+//     if (node ) {
+//         node.innerHTML  =someRes;
+//     }
+// }, 1000);
+
+// function outer() {
+//     const potentiallyHugeArray = [];
+//     return function inner() {
+//         potentiallyHugeArray.push('hello');
+//         console.log('hello!');
+//     }
+// }
+//
+// const sayHello = outer();
+
+
+// const ws = new WeakSet();
+// const obj = {};
+// const foo = {};
+//
+// ws.add(window);
+// ws.add(obj);
+//
+// ws.has(window); // true
+// ws.has(foo); // false, foo не добавлен в WeakSet
+//
+// ws.delete(window); // удаляет window из WeakSet
+// ws.has(window); // false, window был удалён
+
+function createElement(){
+    const div = document.createElement('div');
+    div.id = 'test';
+    document.body.append(testDiv);
+}
+
+createElement()
+
+function deleteElement() {
+    document.body.replaceChild(document.getElementById('test'));
+
+}
+
+deleteElement();
+
+
